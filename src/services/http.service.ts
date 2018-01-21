@@ -15,7 +15,19 @@ export class HttpService {
   public getBeers()
   {
       let requestURL = 'http://localhost:3000/api';
-      return  this.http.get(requestURL).subscribe((res:Response) => {console.log( res.json());  this.data = res.json()});
+      return  this.http.get(requestURL);
+  }
+
+  public getBeersById(id:string)
+  {
+      let requestURL = 'http://localhost:3000/api';
+      return  this.http.get(requestURL);
+  }
+
+  public searchBeers()
+  {
+      let requestURL = 'http://localhost:3000/api';
+      return  this.http.get(requestURL);
   }
 
 }

@@ -39,7 +39,7 @@
       </div>
     </div>-->
 
-    <div *ngFor="let  beer of httpService.data.data" class="col-sm-6 col-md-4">
+    <div *ngFor="let  beer of beers.data" class="col-sm-6 col-md-4">
       <div *ngIf="beer.description != '' && beer.description != undefined" class="thumbnail">
         <!--<img src="..." alt="...">-->
         <div class="caption">

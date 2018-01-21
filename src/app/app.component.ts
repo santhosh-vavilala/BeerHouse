@@ -8,6 +8,7 @@ import  { HttpService } from '../services/http.service'
 })
 export class AppComponent {
   title = 'app works!';
+  beers = [];
   constructor(public httpService:HttpService){
     this.title = httpService.msg;
     this.getBeers();
@@ -15,9 +16,15 @@ export class AppComponent {
 
   public getBeers()
   {
-      this.httpService.getBeers();
+      this.httpService.getBeers().subscribe(data => {console.log(data.json());  this.beers = data.json()});
   }
   public sortByName(){
     
   }
+
+  public filterByProperty()
+  {
+
+  }
+
 }
