@@ -37,3 +37,8 @@ box-shadow: 0px 3px 12px -4px rgba(0,0,0,0.75);
 .load-more{
     background: lightblue;
 }
+
+footer{
+    background: #eee;
+    padding-top: 10px;
+}
