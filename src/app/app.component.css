@@ -1,3 +1,9 @@
+.logo{
+    float: left;
+    height: 50px;
+    margin-right: 10px;
+}
+
 .site-header{
     background-color: orange;
 }
