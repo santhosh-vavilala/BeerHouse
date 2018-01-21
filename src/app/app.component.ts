@@ -9,14 +9,30 @@ import { HttpService } from '../services/http.service'
 export class AppComponent {
   title = 'app works!';
   beers = [];
+  styles = [];
+  data = [];
   constructor(public httpService: HttpService) {
     this.title = httpService.msg;
     this.getBeers();
-    this.sort();
+    
+    
   }
 
   public getBeers() {
-    this.httpService.getBeers().subscribe(data => { console.log(data.json()); this.beers = data.json().data });
+    this.httpService.getBeers().subscribe(data => { console.log(data.json()); this.beers = data.json().data; this.loadData() });
+  }
+
+  loadData(){
+    this.sort();
+    this.beers.forEach(beer => this.styles.push(beer.style.name));
+    this.styles = this.styles.filter((x, i, a) => a.indexOf(x) == i);
+    this.data = this.beers;
+  }
+
+  
+  public onChange(deviceValue) {
+    this.filterByProperty('name',deviceValue,'style')
+    console.log(deviceValue);
   }
 
   public sort() {
@@ -35,10 +51,17 @@ export class AppComponent {
     this.beers.reverse();
   }
 
-  public filterByProperty(prop: string, value: string) {
-    console.log('filter method', prop, value)
+  public filterByProperty(prop: string, value: string, mainprop:string) {
+    this.beers = this.data;
     this.beers = this.beers.filter(function (el) {
+      if(mainprop == ''){
+        console.log('ssaas',el[mainprop][prop])
       return (el[prop] == value);
+      }
+      else{
+        console.log('sss',el[mainprop][prop])
+        return (el[mainprop][prop] == value);
+      }
     });
   }
 }

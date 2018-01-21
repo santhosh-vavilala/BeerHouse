@@ -20,8 +20,11 @@
 <div class="container sort-filter">
   <div class="row">
     <div class="col-xs-12">
-      <span>SORT BY </span><a (click)="orderByName()" href="#" >NAME</a> | 
-      <span>FILTER: </span><a (click)="filterByProperty('id','cBLTUw')" href="#" >TYPE1</a> | <a (click)="orderByName()" href="#" >TYPE2</a> | <a (click)="orderByName()" href="#" >TYPE3</a>
+      <span>SORT BY </span><a (click)="orderByName()" href="#">NAME</a> |
+      <span>FILTER: </span>
+      <select (change)="onChange($event.target.value)">
+        <option *ngFor="let style of styles">{{style}}</option>
+      </select>
     </div>
   </div>
 </div>
@@ -62,7 +65,7 @@
 </div>
 
 <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Copyrights BeerHouse 2018</p>
-      </div>
+  <div class="container">
+    <p class="text-muted">Copyrights BeerHouse 2018</p>
+  </div>
 </footer>
