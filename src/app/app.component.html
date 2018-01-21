@@ -20,8 +20,8 @@
 <div class="container sort-filter">
   <div class="row">
     <div class="col-xs-12">
-      <span (click)="sortByName()" >SORT BY NAME</span> | 
-      <span class="fr" (click)="sortByName()" >FILTER: TYPE1 TYPE2 TYPE3</span>
+      <span>SORT BY </span><a (click)="orderByName()" href="#" >NAME</a> | 
+      <span>FILTER: </span><a (click)="filterByProperty('id','cBLTUw')" href="#" >TYPE1</a> | <a (click)="orderByName()" href="#" >TYPE2</a> | <a (click)="orderByName()" href="#" >TYPE3</a>
     </div>
   </div>
 </div>
@@ -39,7 +39,7 @@
       </div>
     </div>-->
 
-    <div *ngFor="let  beer of beers.data" class="col-sm-6 col-md-4">
+    <div *ngFor="let  beer of beers" class="col-sm-6 col-md-4">
       <div *ngIf="beer.description != '' && beer.description != undefined" class="thumbnail">
         <!--<img src="..." alt="...">-->
         <div class="caption">

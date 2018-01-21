@@ -63,3 +63,7 @@ footer{
 .sort-filter{
     margin-top: 20px;
 }
+
+.sort-filter  span{
+    font-size: 0.8em;
+}
