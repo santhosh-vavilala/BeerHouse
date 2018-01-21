@@ -12,6 +12,12 @@
     color: white;
 }
 
+.thumbnail{
+    min-height: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
 .down-shadow{
 -webkit-box-shadow: 0px 3px 12px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 3px 12px -4px rgba(0,0,0,0.75);
@@ -52,4 +58,8 @@ input:focus{
 footer{
     background: #eee;
     padding-top: 10px;
+}
+
+.sort-filter{
+    margin-top: 20px;
 }

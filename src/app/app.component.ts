@@ -8,7 +8,16 @@ import  { HttpService } from '../services/http.service'
 })
 export class AppComponent {
   title = 'app works!';
-  constructor(httpService:HttpService){
+  constructor(public httpService:HttpService){
     this.title = httpService.msg;
+    this.getBeers();
+  }
+
+  public getBeers()
+  {
+      this.httpService.getBeers();
+  }
+  public sortByName(){
+    
   }
 }
