@@ -20,14 +20,24 @@
 <div class="container sort-filter">
   <div class="row">
     <div class="col-xs-12">
-      <span>SORT BY </span><a (click)="orderByName()" href="#">NAME</a> |
-      <span>FILTER: </span>
-      <select (change)="onChange($event.target.value)">
+      
+      <select (change)="onChange($event.target.value)"  class="form-control">
+        <option value="" disabled selected>Choose your style of Beer!</option>
         <option *ngFor="let style of styles">{{style}}</option>
       </select>
     </div>
   </div>
 </div>
+
+<div class="container sort-filter">
+  <div class="row">
+    <div class="col-xs-12">
+     <span class="fr"><span class=" sort-label">SORT BY </span><a (click)="orderByName()" href="#">NAME</a></span>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="container list-view">
   <div class="row">

@@ -41,7 +41,7 @@ input:focus{
 }
 
 .list-view{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .load-more-content h3{
@@ -64,6 +64,10 @@ footer{
     margin-top: 20px;
 }
 
-.sort-filter  span{
+.sort-filter  .sort-label{
     font-size: 0.8em;
+}
+
+.fr{
+    float:right;
 }
