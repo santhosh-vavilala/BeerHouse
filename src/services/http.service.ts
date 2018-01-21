@@ -24,9 +24,9 @@ export class HttpService {
       return  this.http.get(requestURL);
   }
 
-  public searchBeers()
+  public searchBeers(qstring: string)
   {
-      let requestURL = 'http://localhost:3000/api';
+      let requestURL = 'http://localhost:3000/api/' + qstring;
       return  this.http.get(requestURL);
   }
 

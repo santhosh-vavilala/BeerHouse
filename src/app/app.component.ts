@@ -11,10 +11,10 @@ export class AppComponent {
   beers = [];
   styles = [];
   data = [];
+  searchResults = [];
   constructor(public httpService: HttpService) {
     this.title = httpService.msg;
     this.getBeers();
-    
     
   }
 
@@ -24,6 +24,7 @@ export class AppComponent {
 
   loadData(){
     this.sort();
+    this.styles = [];
     this.beers.forEach(beer => this.styles.push(beer.style.name));
     this.styles = this.styles.filter((x, i, a) => a.indexOf(x) == i);
     this.data = this.beers;
@@ -49,6 +50,15 @@ export class AppComponent {
 
   public orderByName() {
     this.beers.reverse();
+  }
+
+  public toggleMenu() {
+    console.log('toggle')
+  }
+
+  public searchBeers(qstring: string){
+    console.log(qstring)
+    this.httpService.searchBeers(qstring).subscribe(data => { console.log(data.json()); this.beers = data.json().data; this.loadData() });;
   }
 
   public filterByProperty(prop: string, value: string, mainprop:string) {
