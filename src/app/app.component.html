@@ -60,7 +60,7 @@
           <div class="caption">
             <h3>{{beer.name}}</h3>
             <p>{{beer.description.substring(0,250)}}</p>
-            <p class="btn btn-primary" (click)="openNav()"> Details</p>
+            <p class="btn btn-primary" (click)="openNav(beer.id)"> Details</p>
           </div>
         </div>
       </div>
@@ -76,8 +76,8 @@
     </div>
   </div>
   <div id="mySidenav" [style.width.px]="width" class="sidenav">
-    <a href="#" class="closebtn" (click)="closeNav()">&times;</a>
-    <p>Description of Beer goes here!!</p>
+    <span class="details">DETAILS</span>    <a href="#" class="closebtn" (click)="closeNav()">&times;</a>
+    <app-detail>Loading..</app-detail>
   </div>
 
 

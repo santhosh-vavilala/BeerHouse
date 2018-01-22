@@ -20,7 +20,7 @@ export class HttpService {
 
   public getBeersById(id:string)
   {
-      let requestURL = 'http://localhost:3000/api';
+      let requestURL = 'http://localhost:3000/api/beer/' + id;
       return  this.http.get(requestURL);
   }
 

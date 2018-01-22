@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { HttpService } from '../services/http.service'
+import { DetailComponent } from './detail/detail.component'
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { HttpService } from '../services/http.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild(DetailComponent ) Detail: DetailComponent; 
   title = 'app works!';
   beers = [];
   styles = [];
@@ -62,8 +64,9 @@ export class AppComponent {
     this.httpService.searchBeers(qstring).subscribe(data => { console.log(data.json()); this.beers = data.json().data; this.loadData() });;
   }
 
-  public openNav() {
+  public openNav(beerid:string) {
     this.width = 300;
+    this.Detail.getBeerDetails(beerid);
   }
 
   public closeNav() {
