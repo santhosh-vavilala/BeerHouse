@@ -12,6 +12,7 @@ export class AppComponent {
   styles = [];
   data = [];
   searchResults = [];
+  width = 0;
   constructor(public httpService: HttpService) {
     this.title = httpService.msg;
     this.getBeers();
@@ -59,6 +60,14 @@ export class AppComponent {
   public searchBeers(qstring: string){
     console.log(qstring)
     this.httpService.searchBeers(qstring).subscribe(data => { console.log(data.json()); this.beers = data.json().data; this.loadData() });;
+  }
+
+  public openNav() {
+    this.width = 300;
+  }
+
+  public closeNav() {
+    this.width = 0;
   }
 
   public filterByProperty(prop: string, value: string, mainprop:string) {
