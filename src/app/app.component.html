@@ -7,14 +7,14 @@
   </div>
 </nav>
 
-
+<div *ngIf="!isLoading">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 col-sm-10 col-xs-8 col-md-10 margin-10">
         <input #name placeholder="Search for your favorite beer!" class="input-no-border" type="text" autofocus>
       </div>
       <div class="col-lg-2 col-sm-2 col-xs-4 col-md-2">
-        <button class="btn btn-primary" (click)="searchBeers(name.value)">Search</button>
+        <button class="btn btn-success" (click)="searchBeers(name.value)">Search</button>
       </div>
     </div>
   </div>
@@ -39,46 +39,31 @@
     </div>
   </div>
 
+</div>
 
+<div class="container list-view">
+  <div class="row">
+    
+    <h4 class="loading" *ngIf="isLoading">Loading your content..</h4>
 
-  <div class="container list-view">
-    <div class="row">
-      <!--<div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
+    <div *ngFor="let  beer of beers" class="col-sm-6 col-md-4">
+      <div *ngIf="beer.description != '' && beer.description != undefined" class="thumbnail">
+        <!--<img src="..." alt="...">-->
         <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>-->
-
-      <div *ngFor="let  beer of beers" class="col-sm-6 col-md-4">
-        <div *ngIf="beer.description != '' && beer.description != undefined" class="thumbnail">
-          <!--<img src="..." alt="...">-->
-          <div class="caption">
-            <h3>{{beer.name}}</h3>
-            <p>{{beer.description.substring(0,250)}}</p>
-            <p class="btn btn-primary" (click)="openNav(beer.id)"> Details</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail load-more">
-          <!--<img src="..." alt="...">-->
-          <div class="load-more-content">
-            <h3>Load More</h3>
-          </div>
+          <h3>{{beer.name}}</h3>
+          <p>{{beer.description.substring(0,250)}}</p>
+          <p class="btn btn btn-warning" (click)="openNav(beer.id)"> Details</p>
         </div>
       </div>
     </div>
+
+    
   </div>
-  <div id="mySidenav" [style.width.px]="width" class="sidenav">
-    <span class="details">DETAILS</span>    <a href="#" class="closebtn" (click)="closeNav()">&times;</a>
-    <app-detail>Loading..</app-detail>
-  </div>
+</div>
+<div id="mySidenav" [style.width.px]="width" class="sidenav">
+  <span class="details">DETAILS</span> <a href="#" class="closebtn" (click)="closeNav()">&times;</a>
+  <app-detail>Loading..</app-detail>
+</div>
 
 
 

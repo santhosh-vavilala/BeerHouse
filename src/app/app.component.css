@@ -1,11 +1,14 @@
+
 .logo{
     float: left;
-    height: 50px;
-    margin-right: 10px;
+    height: 38px;
+    margin-right: 0px;
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
 .site-header{
-    background-color: orange;
+    background-color: #FF7E08;
 }
 
 .navbar-header a{
@@ -42,6 +45,11 @@ input:focus{
 
 .list-view{
     margin-top: 20px;
+    min-height: 90vh;
+}
+
+.loading{
+    margin-left: 20px;
 }
 
 .load-more-content h3{

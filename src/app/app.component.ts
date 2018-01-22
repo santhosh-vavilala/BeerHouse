@@ -15,6 +15,7 @@ export class AppComponent {
   data = [];
   searchResults = [];
   width = 0;
+  isLoading = true;
   constructor(public httpService: HttpService) {
     this.title = httpService.msg;
     this.getBeers();
@@ -31,6 +32,7 @@ export class AppComponent {
     this.beers.forEach(beer => this.styles.push(beer.style.name));
     this.styles = this.styles.filter((x, i, a) => a.indexOf(x) == i);
     this.data = this.beers;
+    this.isLoading = false;
   }
 
   
